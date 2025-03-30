@@ -1,15 +1,53 @@
 let setofQuestiions = [
-    {question: 'who is you main dad huh',
-        options: ['buhari', 'atiku', 'otus'],
-        answer: 'otus'
+    {
+        question: "What is the capital of France?",
+        options: ["Berlin", "Madrid", "Paris", "Lisbon"],
+        answer: "Paris"
     },
-    {question: 'who is you main dad tea',
-        options: ['buhari', 'atiku', 'otus'],
-        answer: 'otus'
+    {
+        question: "Who wrote 'To Kill a Mockingbird'?",
+        options: ["Harper Lee", "J.K. Rowling", "Ernest Hemingway", "Mark Twain"],
+        answer: "Harper Lee"
     },
-    {question: 'who is you main dad abi',
-        options: ['buhari', 'atiku', 'otus'],
-        answer: 'otus'
+    {
+        question: "Which planet is known as the Red Planet?",
+        options: ["Earth", "Mars", "Jupiter", "Venus"],
+        answer: "Mars"
+    },
+    {
+        question: "What is the square root of 64?",
+        options: ["6", "8", "10", "12"],
+        answer: "8"
+    },
+    {
+        question: "Who painted the Mona Lisa?",
+        options: ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Claude Monet"],
+        answer: "Leonardo da Vinci"
+    },
+    {
+        question: "Which is the longest river in the world?",
+        options: ["Amazon", "Nile", "Yangtze", "Mississippi"],
+        answer: "Nile"
+    },
+    {
+        question: "What is the chemical symbol for Gold?",
+        options: ["Go", "Au", "Ag", "Gd"],
+        answer: "Au"
+    },
+    {
+        question: "Which year did World War II end?",
+        options: ["1942", "1945", "1948", "1950"],
+        answer: "1945"
+    },
+    {
+        question: "Who discovered gravity?",
+        options: ["Albert Einstein", "Galileo Galilei", "Isaac Newton", "Nikola Tesla"],
+        answer: "Isaac Newton"
+    },
+    {
+        question: "What is the hardest natural substance on Earth?",
+        options: ["Iron", "Gold", "Diamond", "Platinum"],
+        answer: "Diamond"
     }
 ]
 
