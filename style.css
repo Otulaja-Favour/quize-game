@@ -66,9 +66,14 @@ align-content: center;
 .questiontag2{
     display: none;
 }
-button{
+#submission{
     display: flex;
     margin: 10px auto;
+    padding: 10px 20px;
+border-radius: 10px;
+border: none;
+background-color: green;
+color: white;
 }
 @media screen and (max-width:900px) {
     .main{
