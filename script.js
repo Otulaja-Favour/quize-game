@@ -31,6 +31,10 @@ function back(){
     document.getElementById('main').style.display = 'none'
     
 }
+let username = document.getElementById('Username')
+username.addEventListener('input', function(){
+    document.getElementById(usernametext).innerText = `welcome ${username}`
+})
 
 let setofQuestiions = [
     {
