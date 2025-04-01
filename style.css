@@ -9,6 +9,39 @@ body{
     font-family: Montserrat;
 
 }
+#interface{
+    width: 40%;
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    align-items: center !important;
+    justify-content: center;
+    margin: 20px auto;
+    border-radius: 10px;
+    color: black;
+}
+#interface input{
+    display: block;
+    margin: 10px 0;
+    height: 30px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+#interface button{
+    display:  block;
+    margin: 10px 0;
+    border-radius: 10px;
+    width: 50%;
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+}
+label{
+    font-size: 20px;
+}
+#main{
+display: none;
+}
 .main{
     width: 40%;
     margin: 40px auto;
@@ -16,7 +49,10 @@ border: 1px solid red;
 border-radius: 20px; 
 background-color: white;
 font-family: Montserrat;
-
+}
+#show{
+    text-align: center;
+    margin: 10px 0;
 }
 .login{
     /* border: 1px solid ; */

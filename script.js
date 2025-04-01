@@ -1,3 +1,37 @@
+let questiontag = document.querySelectorAll('.questiontag')
+let questiontag2 = document.querySelectorAll('.questiontag2')
+
+function goToQuize(){
+    document.getElementById('interface').style.display = 'none'
+    document.getElementById('main').style.display = 'block'
+    perQuestion()
+    questiontag2.forEach((element) => {
+        element.style.display = 'none';
+    });
+    questiontag.forEach((element) => {
+        element.style.display = 'block';
+    });
+
+}
+function goToQuizeEx(){
+    document.getElementById('interface').style.display = 'none';
+    document.getElementById('main').style.display = 'block'
+
+    sorting()
+    questiontag2.forEach((element) => {
+        element.style.display = 'block';
+    });
+    questiontag.forEach((element) => {
+        element.style.display = 'none';
+    });
+}
+
+function back(){
+    document.getElementById('interface').style.display = 'block';
+    document.getElementById('main').style.display = 'none'
+    
+}
+
 let setofQuestiions = [
     {
         question: "What is the capital of France?",
@@ -59,18 +93,18 @@ let secondShow = document.getElementById('shows')
 let currentQuestionIndex = 0
 let score = 0
 
-function perQuestion(){
-const currentQuestion = setofQuestiions[currentQuestionIndex];
-document.getElementById('questiontext').innerText = `  ${currentQuestionIndex + 1}.  ${currentQuestion.question} `;
+function perQuestion() {
+    const currentQuestion = setofQuestiions[currentQuestionIndex];
+    document.getElementById('questiontext').innerText = `  ${currentQuestionIndex + 1}.  ${currentQuestion.question} `;
 
-questionArea.innerHTML = '';
-currentQuestion.options.forEach((option) => {
-let label = document.createElement('label')
-    label.classList.add('labels');
-    
-    label.innerHTML = `<input type="radio" name="setofQuestiions" value="${option}"> ${option}`;
-    questionArea.appendChild(label);
-})
+    questionArea.innerHTML = '';
+    currentQuestion.options.forEach((option) => {
+        let label = document.createElement('label')
+        label.classList.add('labels');
+
+        label.innerHTML = `<input type="radio" name="setofQuestiions" value="${option}"> ${option}`;
+        questionArea.appendChild(label);
+    })
 
 }
 function submit() {
@@ -81,108 +115,76 @@ function submit() {
         return;
     }
 
-    const answer =  setofQuestiions[currentQuestionIndex].answer;
-    if(selectedOption.value === answer){
+    const answer = setofQuestiions[currentQuestionIndex].answer;
+    if (selectedOption.value === answer) {
         score++
-        alert('opor')
-    currentQuestionIndex++;  
+        showResult.innerText = `Score: ${score}`;
+        showResult.style.color = 'green'
 
-    }else{
-        alert('olodo')
-    }
-}
- document.getElementById('submission').addEventListener('click', nextQuestion);
-function nextQuestion() {
-    // currentQuestionIndex++;  
-    if (currentQuestionIndex < setofQuestiions.length) {
-        perQuestion(); 
     } else {
-        alert('Quiz completed!');  
+        showResult.innerText = `incorrect  X (correct answer: ${answer})`;
+        showResult.style.color = 'red';
     }
-   
+        currentQuestionIndex++
+        if(currentQuestionIndex < setofQuestiions.length){
+            perQuestion()
+        } else{
+            alert('quize completed')
+        }
+    
+          
+        }
+
+        function backQ() {
+            if (currentQuestionIndex > 0) {
+              currentQuestionIndex--;
+              perQuestion();
+            }
+          }
+
+        //   nextQuestion()
+          perQuestion()
+
+function sorting() {
+
+    let headersOfQuestion = document.getElementsByTagName('questiontext1');
+    let questionArea = document.getElementById('questionArea1')
+
+
+    setofQuestiions.forEach((value, index) => {
+        let questionDiv = document.createElement('div')
+        questionDiv.classList.add('questiondiv');
+        questionDiv.textContent = `${index + 1}. ${value.question}`;
+
+        let divOptions = document.createElement('div')
+        divOptions.classList.add('divoption')
+
+        value.options.forEach((options) => {
+            let label = document.createElement('label');
+            label.classList.add('labels')
+            let radio = document.createElement('input')
+            radio.classList.add('radios')
+            radio.type = 'radio';
+            radio.name = `radio-${index}`; //giving the radio a name
+            radio.value = options
+
+            label.appendChild(radio);
+            label.appendChild(document.createTextNode(options));
+
+            divOptions.appendChild(label)
+        })
+        questionArea.appendChild(questionDiv);
+        questionArea.appendChild(divOptions);
+        // questionArea.appendChild()
+
+    })
+
 }
-nextQuestion()
-perQuestion()
 
 
 
-
-
-
-
-function sorting(){
-
-let headersOfQuestion = document.getElementsByTagName('questiontext1');
-let questionArea = document.getElementById('questionArea1')
-
-
-setofQuestiions.forEach((value, index) => {
-    let questionDiv = document.createElement('div')
-    questionDiv.classList.add('questiondiv');
-    questionDiv.textContent = `${index + 1}. ${value.question}`;
-
-let divOptions = document.createElement('div')
-divOptions.classList.add('divoption')
-
-value.options.forEach((options) => {
-    let label = document.createElement('label');
-    label.classList.add('labels')
-    let radio = document.createElement('input')
-    radio.classList.add('radios')
-    radio.type = 'radio';
-    radio.name = `radio-${index}`; //giving the radio a name
-radio.value = options
-
-    label.appendChild(radio);
-    label.appendChild(document.createTextNode(options));
-    
-divOptions.appendChild(label)
-})
-questionArea.appendChild(questionDiv);
-questionArea.appendChild(divOptions);
-// questionArea.appendChild()
-
-})
-
-}
-
-let questiontag = document.querySelectorAll('.questiontag')
-let questiontag2 = document.querySelectorAll('.questiontag2')
-document.getElementById('sortQuestion').addEventListener('click', function(){
-    // document.getElementById('questionArea').innerHTML = "";
-    sorting()
-    questiontag.forEach((element) => {
-        element.style.display = 'none'; 
-    });
-    document.getElementById('sortQuestion').style.display = 'none'  
-    questiontag2.forEach((element) => {
-        element.style.display = 'block'; 
-    });
-    document.getElementById('sortQuestion').style.display = 'none' 
-    document.getElementById('sortQuestion2').style.display = 'block'   
-    // document.getElementById('questionArea').innerHTML = "";
-})
-
-
-document.getElementById('sortQuestion2').addEventListener('click', function(){
-    document.getElementById('questionArea').innerHTML = "";
-    nextQuestion()
-perQuestion()
-    questiontag2.forEach((element) => {
-        element.style.display = 'none'; 
-    });
-    
-  document.getElementById('sortQuestion2').style.display = 'none' ;
-
-    questiontag.forEach((element) => {
-        element.style.display = 'block'; 
-    });
-    
-    document.getElementById('sortQuestion').style.display = 'block'  
-})
-
-let timeLeft = 60; 
-let timerDisplay = document.getElementById('time'); 
+let timeLeft = 60;
+let timerDisplay = document.getElementById('time');
 
 function startTimer() {
     let countdown = setInterval(() => {
@@ -192,14 +194,14 @@ function startTimer() {
         } else {
             clearInterval(countdown);
             alert('Time is up! Restarting...');
-            restartTimer(); 
+            restartTimer();
         }
     }, 1000);
 }
 
 function restartTimer() {
     timeLeft = 60;
-    startTimer(); 
+    startTimer();
 }
 startTimer();
 

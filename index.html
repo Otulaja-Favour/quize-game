@@ -9,11 +9,20 @@
 </head>
 
 <body>
-    <div class="main">
+    <div id="interface">
+        <label for="fname">Username</label>
+        <input type="text" placeholder="Input here">
+        <p id="usernametext"></p>
+        <button onclick="goToQuize()">practice quize</button>
+        <button onclick="goToQuizeEx()">exam quize</button>
+
+
+    </div>
+    <div class="main" id="main">
         <div class="login">
             
             
-            <button id="sortQuestion">sortqfull</button>
+            <button onclick="back()">sortqfull</button>
             <button id="sortQuestion2">sortq/</button>
             <button id="calculator">calculator</button>
 <p id="time">time</p>
@@ -25,6 +34,8 @@
             <div id="questionArea"></div>
 
             <button onclick="submit()" id="submission">submit</button>
+            <button onclick="backQ()">back</button>
+
             <div id="show"></div>
             <p id="shows"></p>
         </div>
