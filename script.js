@@ -61,7 +61,7 @@ let score = 0
 
 function perQuestion(){
 const currentQuestion = setofQuestiions[currentQuestionIndex];
-document.getElementById('questiontext').innerText = currentQuestion.question
+document.getElementById('questiontext').innerText = `  ${currentQuestionIndex + 1}.  ${currentQuestion.question} `;
 
 questionArea.innerHTML = '';
 currentQuestion.options.forEach((option) => {
