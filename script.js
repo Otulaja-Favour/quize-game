@@ -122,7 +122,7 @@ function submit() {
     const answer = setofQuestiions[currentQuestionIndex].answer;
     if (selectedOption.value === answer) {
         score++
-        showResult.innerText = `Score: ${score}`;
+        showResult.innerText = ` correct`;
         showResult.style.color = 'green'
 
     } else {
