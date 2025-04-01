@@ -1,40 +1,3 @@
-let questiontag = document.querySelectorAll('.questiontag')
-let questiontag2 = document.querySelectorAll('.questiontag2')
-
-function goToQuize(){
-    document.getElementById('interface').style.display = 'none'
-    document.getElementById('main').style.display = 'block'
-    perQuestion()
-    questiontag2.forEach((element) => {
-        element.style.display = 'none';
-    });
-    questiontag.forEach((element) => {
-        element.style.display = 'block';
-    });
-
-}
-function goToQuizeEx(){
-    document.getElementById('interface').style.display = 'none';
-    document.getElementById('main').style.display = 'block'
-
-    sorting()
-    questiontag2.forEach((element) => {
-        element.style.display = 'block';
-    });
-    questiontag.forEach((element) => {
-        element.style.display = 'none';
-    });
-}
-
-function back(){
-    document.getElementById('interface').style.display = 'block';
-    document.getElementById('main').style.display = 'none'
-    
-}
-let username = document.getElementById('Username')
-username.addEventListener('input', function(){
-    document.getElementById(usernametext).innerText = `welcome ${username}`
-})
 
 let setofQuestiions = [
     {
@@ -149,6 +112,9 @@ function submit() {
         //   nextQuestion()
           perQuestion()
 
+
+
+          
 function sorting() {
 
     let headersOfQuestion = document.getElementsByTagName('questiontext1');
@@ -184,7 +150,56 @@ function sorting() {
     })
 
 }
+let questiontag = document.querySelectorAll('.questiontag')
+let questiontag2 = document.querySelectorAll('.questiontag2')
 
+function goToQuize(){
+    document.getElementById('interface').style.display = 'none'
+    document.getElementById('main').style.display = 'block'
+    perQuestion()
+    questiontag2.forEach((element) => {
+        element.style.display = 'none';
+    });
+    questiontag.forEach((element) => {
+        element.style.display = 'block';
+    });
+
+}
+function goToQuizeEx(){
+    document.getElementById('interface').style.display = 'none';
+    document.getElementById('main').style.display = 'block'
+
+    sorting()
+    questiontag2.forEach((element) => {
+        element.style.display = 'block';
+    });
+    questiontag.forEach((element) => {
+        element.style.display = 'none';
+    });
+}
+
+function back(){
+    document.getElementById('interface').style.display = 'block';
+    document.getElementById('main').style.display = 'none'
+    
+}
+
+
+
+
+function submitQuiz() {
+    let score = 0;
+
+    questions.forEach((value, index) => {
+        let selectedOption = document.querySelector(`input[name="radio-${index}"]:checked`);
+        if (selectedOption && selectedOption.value === value.answer) {
+            score++;
+        }
+    });
+
+    let resultContainer = document.getElementById("shows1");
+    resultContainer.textContent = `You scored ${score} out of ${questions.length}`;
+}
 
 
 let timeLeft = 60;

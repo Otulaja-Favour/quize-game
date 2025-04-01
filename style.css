@@ -23,7 +23,7 @@ body{
 }
 #interface button{
     display:  block;
-    margin: 10px 0;
+    margin: 10px auto;
     border-radius: 10px;
     width: 30%;
     border: none;
