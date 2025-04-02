@@ -1,3 +1,37 @@
+let questiontag = document.querySelectorAll('.questiontag')
+let questiontag2 = document.querySelectorAll('.questiontag2')
+
+function goToQuize(){
+    document.getElementById('interface').style.display = 'none'
+    document.getElementById('main').style.display = 'block'
+    perQuestion()
+    questiontag2.forEach((element) => {
+        element.style.display = 'none';
+    });
+    questiontag.forEach((element) => {
+        element.style.display = 'block';
+    });
+
+}
+function goToQuizeEx(){
+    document.getElementById('interface').style.display = 'none';
+    document.getElementById('main').style.display = 'block'
+
+    sorting()
+    questiontag2.forEach((element) => {
+        element.style.display = 'block';
+    });
+    questiontag.forEach((element) => {
+        element.style.display = 'none';
+    });
+}
+
+function back(){
+    document.getElementById('interface').style.display = 'block';
+    document.getElementById('main').style.display = 'none'
+    
+}
+
 
 let setofQuestiions = [
     {
@@ -150,47 +184,12 @@ function sorting() {
     })
 
 }
-let questiontag = document.querySelectorAll('.questiontag')
-let questiontag2 = document.querySelectorAll('.questiontag2')
-
-function goToQuize(){
-    document.getElementById('interface').style.display = 'none'
-    document.getElementById('main').style.display = 'block'
-    perQuestion()
-    questiontag2.forEach((element) => {
-        element.style.display = 'none';
-    });
-    questiontag.forEach((element) => {
-        element.style.display = 'block';
-    });
-
-}
-function goToQuizeEx(){
-    document.getElementById('interface').style.display = 'none';
-    document.getElementById('main').style.display = 'block'
-
-    sorting()
-    questiontag2.forEach((element) => {
-        element.style.display = 'block';
-    });
-    questiontag.forEach((element) => {
-        element.style.display = 'none';
-    });
-}
-
-function back(){
-    document.getElementById('interface').style.display = 'block';
-    document.getElementById('main').style.display = 'none'
-    
-}
 
 
-
-
-function submitQuiz() {
+function submitQuize() {
     let score = 0;
 
-    questions.forEach((value, index) => {
+    setofQuestiions.forEach((value, index) => {
         let selectedOption = document.querySelector(`input[name="radio-${index}"]:checked`);
         if (selectedOption && selectedOption.value === value.answer) {
             score++;
@@ -198,11 +197,11 @@ function submitQuiz() {
     });
 
     let resultContainer = document.getElementById("shows1");
-    resultContainer.textContent = `You scored ${score} out of ${questions.length}`;
+    resultContainer.textContent = `You scored ${score} out of ${setofQuestiions.length}`;
 }
 
 
-let timeLeft = 60;
+let timeLeft = 100;
 let timerDisplay = document.getElementById('time');
 
 function startTimer() {
@@ -214,15 +213,18 @@ function startTimer() {
             clearInterval(countdown);
             alert('Time is up! Restarting...');
             restartTimer();
+
         }
     }, 1000);
 }
 
 function restartTimer() {
-    timeLeft = 60;
+    timeLeft = 90;
     startTimer();
+    currentQuestionIndex = 0;
+    score = 0; 
+    perQuestion()
 }
 startTimer();
-
 
 

@@ -36,6 +36,9 @@ body{
 #main{
 display: none;
 }
+h1{
+    text-align: center;
+}
 .main{
     width: 40%;
     margin: 40px auto;
@@ -44,7 +47,7 @@ border-radius: 20px;
 background-color: white;
 font-family: Montserrat;
 }
-#show{
+#show, #shows1{
     text-align: center;
     margin: 10px 0;
 }
@@ -115,6 +118,13 @@ font-family: Montserrat;
 @media screen and (max-width:900px) {
     .main{
         width: 90%;
+    }
+    #interface{
+        width: 100%;
+        margin-top: 100px;
+    }
+    #interface button{
+        width: 100%;
     }
     
 }
